@@ -6,7 +6,7 @@
 /*   By: dlenskyi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 15:20:42 by dlenskyi          #+#    #+#             */
-/*   Updated: 2018/11/20 13:06:38 by dlenskyi         ###   ########.fr       */
+/*   Updated: 2018/11/30 15:57:50 by dlenskyi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,5 +92,6 @@ void				*ft_realloc(void *ptr, size_t size);
 char				*ft_strndup(const char *s1, size_t len);
 int					ft_sqrt(int n);
 int					get_next_line(const int fd, char **line);
+void				ft_delmatrix(char **tab, int size);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: dlenskyi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/10/27 16:45:23 by dlenskyi          #+#    #+#              #
-#    Updated: 2018/11/20 13:06:12 by dlenskyi         ###   ########.fr        #
+#    Updated: 2018/11/30 15:58:19 by dlenskyi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ ft_lstadd.c	ft_memset.c	ft_strcpy.c	ft_strncpy.c \
 ft_lstdel.c	ft_putchar.c	ft_strdel.c	ft_strnequ.c \
 ft_lstdelone.c	ft_putchar_fd.c	ft_strdup.c	ft_strnew.c \
 ft_do_op.c ft_strrev.c ft_realloc.c ft_swap.c ft_fillmatrix.c \
-ft_strndup.c ft_itoa_base.c get_next_line.c ft_sqrt.c
+ft_strndup.c ft_itoa_base.c get_next_line.c ft_sqrt.c \
+ft_delmatrix.c
+
 HEADER = ./libft.h
 
 all: $(NAME)
