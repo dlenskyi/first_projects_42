@@ -6,7 +6,7 @@
 /*   By: dlenskyi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 15:20:42 by dlenskyi          #+#    #+#             */
-/*   Updated: 2018/11/30 15:57:50 by dlenskyi         ###   ########.fr       */
+/*   Updated: 2018/11/20 13:06:38 by dlenskyi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <fcntl.h>
+# include <stdarg.h>
+# include <limits.h>
+# include "ft_printf.h"
+
 # define BUFF_SIZE 10
 
 typedef	struct		s_list
@@ -93,5 +97,9 @@ char				*ft_strndup(const char *s1, size_t len);
 int					ft_sqrt(int n);
 int					get_next_line(const int fd, char **line);
 void				ft_delmatrix(char **tab, int size);
+char				*ft_ltoa(long n);
+char				*ft_ltoa_u(unsigned long n);
+char				*ft_ltoa_base_u(unsigned long n, int base);
+void				ft_str_toupper(char *s);
 
 #endif
