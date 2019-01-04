@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_del_strsplit.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlenskyi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/26 18:50:26 by dlenskyi          #+#    #+#             */
-/*   Updated: 2018/10/26 18:50:28 by dlenskyi         ###   ########.fr       */
+/*   Created: 2018/12/29 14:40:53 by dlenskyi          #+#    #+#             */
+/*   Updated: 2018/12/29 14:40:58 by dlenskyi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+void	ft_del_strsplit(char **str)
 {
-	char	*s;
-	int		i;
+	size_t i;
 
-	if (!src)
-		return (NULL);
-	i = -1;
-	s = (char *)src;
-	while (s[++i] != '\0')
-		dst[i] = s[i];
-	dst[i] = '\0';
-	return (dst);
+	i = 0;
+	while (str[i])
+		free(str[i++]);
+	free(str);
 }

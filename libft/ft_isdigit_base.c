@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dlenskyi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/10/26 18:50:26 by dlenskyi          #+#    #+#             */
-/*   Updated: 2018/10/26 18:50:28 by dlenskyi         ###   ########.fr       */
+/*   Created: 2018/12/29 13:06:59 by dlenskyi          #+#    #+#             */
+/*   Updated: 2018/12/29 13:07:00 by dlenskyi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-char	*ft_strcpy(char *dst, const char *src)
+int		ft_isdigit_base(char c, int base)
 {
-	char	*s;
+	char	*base_str;
 	int		i;
 
-	if (!src)
-		return (NULL);
 	i = -1;
-	s = (char *)src;
-	while (s[++i] != '\0')
-		dst[i] = s[i];
-	dst[i] = '\0';
-	return (dst);
+	base_str = "0123456789ABCDEF";
+	while (++i < base)
+	{
+		if (base_str[i] == ft_toupper(c))
+			return (i);
+	}
+	return (-1);
 }

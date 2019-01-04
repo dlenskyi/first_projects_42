@@ -6,80 +6,51 @@
 /*   By: dlenskyi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/29 17:17:35 by dlenskyi          #+#    #+#             */
-/*   Updated: 2018/10/29 17:17:36 by dlenskyi         ###   ########.fr       */
+/*   Updated: 2018/12/15 17:11:18 by dlenskyi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "includes/libft.h"
 
-static int		counter(const char *s, char c)
+static char		*ft_replace_chr(char const *s, int c1, int c2)
 {
-	int		b;
-	char	*s1;
-	int		r;
+	size_t		i;
 
-	b = 0;
-	r = 0;
-	s1 = (char *)s;
-	if (!s || !c)
-		return (0);
-	while (s1[b])
+	i = 0;
+	while (s[i])
 	{
-		while (s1[b] == c)
-		{
-			if (!s1[b + 1])
-				return (r);
-			b++;
-		}
-		r++;
-		while (s1[b] != c && s1[b])
-			b++;
+		if (s[i] == c1)
+			*((char *)s + i) = c2;
+		++i;
 	}
-	return (r);
-}
-
-static char		*remove_del(const char *str, size_t *t, char c)
-{
-	char	*s1;
-	size_t	j;
-	size_t	size;
-
-	j = 0;
-	s1 = (char *)str;
-	while (s1[*t] == c)
-		*t += 1;
-	j = *t;
-	while (s1[*t])
-	{
-		if (s1[*t] == c)
-			break ;
-		*t = *t + 1;
-	}
-	size = *t - j;
-	return (ft_strsub(s1, j, size));
+	return ((char *)s);
 }
 
 char			**ft_strsplit(char const *s, char c)
 {
-	int		i;
-	char	*s1;
-	char	**res;
-	int		len;
-	size_t	j;
+	size_t		i;
+	size_t		j;
+	size_t		end;
+	char		tmp[ft_strlen(s) + 1];
+	char		**arr;
 
-	s1 = (char *)s;
 	i = 0;
 	j = 0;
-	i = 0;
-	len = counter(s1, c);
-	res = (char **)malloc(sizeof(char *) * (len + 1));
-	if (!res)
-		return (NULL);
-	while (i < len)
+	end = ft_strlen(s);
+	ft_bzero(tmp, sizeof(tmp));
+	ft_strcpy(tmp, s);
+	ft_replace_chr(tmp, c, '\0');
+	arr = (char **)ft_memalloc(sizeof(*arr) * (end));
+	while (i < end && s[i] != '\0')
 	{
-		res[i] = remove_del(s1, &j, c);
-		i++;
+		while (s[i] == c)
+			++i;
+		arr[j] = ft_strdup(tmp + i);
+		++j;
+		while (tmp[i] != '\0')
+			++i;
+		++i;
 	}
-	res[i] = 0;
-	return (res);
+	arr[j] = NULL;
+	return (arr);
 }

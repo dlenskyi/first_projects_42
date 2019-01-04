@@ -6,7 +6,7 @@
 /*   By: dlenskyi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/24 15:20:42 by dlenskyi          #+#    #+#             */
-/*   Updated: 2018/11/20 13:06:38 by dlenskyi         ###   ########.fr       */
+/*   Updated: 2018/12/29 15:15:44 by dlenskyi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include <limits.h>
 # include "ft_printf.h"
 
-# define BUFF_SIZE 10
+# define BUFF_SIZE 100
 
 typedef	struct		s_list
 {
@@ -101,5 +101,12 @@ char				*ft_ltoa(long n);
 char				*ft_ltoa_u(unsigned long n);
 char				*ft_ltoa_base_u(unsigned long n, int base);
 void				ft_str_toupper(char *s);
+int					ft_atoi_base(const char *str, int base);
+int					ft_max(int a, int b);
+int					ft_min(int a, int b);
+int					ft_isprefix(const char *s, int base);
+int					ft_isdigit_base(char c, int base);
+int					ft_isdigit_valid(char *s, int base);
+void				ft_del_strsplit(char **str);
 
 #endif
